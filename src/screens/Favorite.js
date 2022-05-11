@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-const Pokedex = () => {
+const Favorite = () => {
   return (
     <SafeAreaView>
-      <Text>pokedex</Text>
+      <Text>favorite</Text>
     </SafeAreaView>
   )
 }
 
-export default Pokedex
+export default Favorite
