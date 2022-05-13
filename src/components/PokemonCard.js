@@ -7,12 +7,12 @@ const PokemonCard = ({ pokemon }) => {
   // console.log('pokemon', pokemon)
 
   const pokemonColor = getColorByPokemonType(pokemon.type)
-  console.log(pokemonColor);
   const bgStyles = { backgroundColor: pokemonColor, ...styles.bgStyles }
 
   const goTOPokemon = () => {
     console.log(`poemon ${pokemon.name}`)
   }
+
   return (
     <TouchableWithoutFeedback onPress={goTOPokemon}>
       <View style={styles.card}>
