@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Image, TouchableWithoutFeedback } from 'react-native'
+import { capitalize } from 'lodash'
 import getColorByPokemonType from '../utils/getColorByPokemonType'
 
 
@@ -18,7 +19,7 @@ const PokemonCard = ({ pokemon }) => {
         <View style={styles.spacing}>
           <View style={bgStyles} >
             <Text style={styles.number} >#{`${pokemon.order}`.padStart(3, 0)}</Text>
-            <Text style={styles.name} >{pokemon.name}</Text>
+            <Text style={styles.name} >{capitalize(pokemon.name)}</Text>
             <Image source={{ uri: pokemon.imagen }} style={styles.image} />
           </View>
         </View>
