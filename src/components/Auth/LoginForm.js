@@ -3,10 +3,12 @@ import { Text, View, StyleSheet, TextInput, Button, Keyboard } from 'react-nativ
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { user, userDatails } from '../../utils/UserDB'
+import useAuth from '../../hooks/useAuth'
 
 const LoginForm = () => {
 
   const [error, setError] = useState('')
+  const { login, auth } = useAuth()
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object(validationSchema()),
@@ -20,8 +22,9 @@ const LoginForm = () => {
     if (username !== user.username || password !== user.password) {
       setError('el usuario o contraseña incorrectas')
     } else {
-      console.log('login correcto');
-      console.log(userDatails);
+      login(userDatails)
+      console.log('login correcto', userDatails);
+      // console.log(userDatails);
     }
   }
 
