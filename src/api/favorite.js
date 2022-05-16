@@ -5,7 +5,7 @@ import { FAVORITE_STORAGE } from '../utils/constants'
 export const getPokemonsFavoritesApi = async () => {
   try {
     const res = await AsyncStorage.getItem(FAVORITE_STORAGE)
-    return res
+    return JSON.parse(res || [])
   } catch (error) {
     throw error
   }
@@ -13,7 +13,7 @@ export const getPokemonsFavoritesApi = async () => {
 
 export const addPokemonFavoriteApi = async (id) => {
   try {
-    const favorites = []
+    const favorites = await getPokemonsFavoritesApi()
     favorites.push(id)
     await AsyncStorage.setItem(FAVORITE_STORAGE, JSON.stringify(favorites))
   } catch (error) {
