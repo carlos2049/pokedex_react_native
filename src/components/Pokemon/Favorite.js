@@ -6,6 +6,7 @@ import { addPokemonFavoriteApi, isPokemonFavorite } from '../../api/favorite'
 const Favorite = ({ id }) => {
 
   const [isFavorite, setIsFavorite] = useState(undefined)
+  const [reloadCheck, setReloadCheck] = useState(false)
   const Icon = isFavorite ? FontAwesome : FontAwesome5
 
   useEffect(() => {
@@ -18,11 +19,16 @@ const Favorite = ({ id }) => {
         setIsFavorite(false)
       }
     })()
-  }, [id])
+  }, [id, reloadCheck])
+
+  const onReloadCheckFavorite = () => {
+    setReloadCheck((prev) => !prev)
+  }
 
   const addFavorite = async () => {
     try {
       await addPokemonFavoriteApi(id)
+      onReloadCheckFavorite()
     } catch (error) {
       throw error
     }
