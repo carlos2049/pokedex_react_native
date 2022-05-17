@@ -7,7 +7,6 @@ import useAuth from '../hooks/useAuth'
 const Account = () => {
 
   const { auth } = useAuth()
-  console.log('auth', auth)
   return (
     <View>
       {auth

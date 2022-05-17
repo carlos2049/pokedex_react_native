@@ -23,7 +23,6 @@ const LoginForm = () => {
       setError('el usuario o contraseña incorrectas')
     } else {
       login(userDatails)
-      console.log('login correcto', userDatails);
       // console.log(userDatails);
     }
   }

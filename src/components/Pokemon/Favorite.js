@@ -13,7 +13,6 @@ const Favorite = ({ id }) => {
     (async () => {
       try {
         const res = await isPokemonFavorite(id)
-        console.log('jsdad', res);
         setIsFavorite(res)
       } catch (error) {
         setIsFavorite(false)
