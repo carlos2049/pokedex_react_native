@@ -9,7 +9,7 @@ const Tabs = createBottomTabNavigator()
 
 const Navigation = () => {
   return (
-    <Tabs.Navigator>
+    <Tabs.Navigator initialRouteName='Pokedex' >
       <Tabs.Screen name='Account' component={AccountNavigation} options={{
         tabBarLabel: "Mi cuenta",
         tabBarIcon: ({ color, size }) => (
